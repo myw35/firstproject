@@ -1,0 +1,79 @@
+{% load static %}
+<!-- Navbar 영역 -->
+<div id="js-preloader" class="js-preloader">
+  <div class="preloader-inner">
+    <span class="dot"></span>
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="/" class="logo">
+                      <img src={% static "assets\images\logo.png" %} alt="">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Search End ***** -->
+                  <div class="search-input">
+                    <form id="search" action="#">
+                      <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                      <i class="fa fa-search"></i>
+                    </form>
+                  </div>
+                  <!-- ***** Search End ***** -->
+                  <!-- ***** Menu Start ***** -->
+           {% if user.is_anonymous %}
+                  <ul class="nav">
+                      <li><a href="/" class="active">Home</a></li>
+                      <li><a href= "{% url 'common:login' %}">Login </a></li>
+                      <li><a href= "{% url 'common:signup' %}">Signup </a></li>
+                      <li><a href="">No Profile</a></li>
+                  </ul>   
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+
+            {% else %}  
+                <ul class="nav">
+                  <li><a href="/" class="active">Home</a></li>
+                  <li><a href= "{% url 'Board:board_create' %}" >Community write </a></li>
+                  <li><a href= "{% url 'common:logout' %}" >Logout [ {{user.username}} ]</a></li>
+        
+                  <li><a href="{% url 'common:browse' %}">Profile <img src= {% static "assets\images\profile-header.jpg" %} alt=""></a></li>
+                </ul> 
+                    <a class='menu-trigger'>
+                     <span>Menu</span>
+                    </a>  
+             {% endif %}      
+      </div>
+  </div>
+</header>
+<script src={% static "vendor\jquery\jquery.min.js" %}></script>
+<script src={% static "vendor\bootstrap\js/bootstrap.min.js" %}></script>
+
+<script src={% static "assets\js/isotope.min.js" %}></script>
+<script src={% static "assets\js\owl-carousel.js" %}></script>
+<script src={% static "assets\js/tabs.js" %}></script>
+<script src={% static "assets\js/popup.js" %}></script>
+<script src={% static "assets\js/custom.js" %}></script>
+<script src={% static "js\jquery-3.3.1.min.js" %}></script>
+<script src={% static "js\bootstrap.min.js" %}></script>
+<script src={% static "js\player.js" %}></script>
+<script src={% static "js\jquery.nice-select.min.js" %}></script>
+<script src={% static "js\mixitup.min.js" %}></script>
+<script src={% static "js\jquery.slicknav.js" %}></script>
+<script src={% static "js\owl.carousel.min.js" %}></script>
+<script src={% static "js\main.js" %}></script>
